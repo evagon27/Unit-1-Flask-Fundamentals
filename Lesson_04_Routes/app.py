@@ -41,6 +41,20 @@ def calculator(num1, operation, num2):
         return f"{num1} {operation} {num2} = {result}"
     else:
         return f"Unknown operation! {operation}"
+    
+@app.route("/temp/<unit>/<float:degrees>")
+def temperature(unit, degrees):
+    units = {
+        "F": (degrees - 32) * 5/9,
+        "f": (degrees - 32) * 5/9,
+        "C": (degrees * 9/5) +32,
+        "c": (degrees * 9/5) +32,
+    }
+    if unit in units:
+        result = units[unit]
+        return f'{degrees}{unit} = {round(result, 2)}C' if unit == "F" else f"{degrees}{unit} = {round(result, 2)}F"
+    else:
+        return f"Invalid unit of temperature!"
 
 if __name__ == "__main__":
     app.run(debug=True)
