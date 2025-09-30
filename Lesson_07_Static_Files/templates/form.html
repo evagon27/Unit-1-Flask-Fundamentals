@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>Customer Feedback</h1>
-        <form action="" method="POST">
+        <form action="" method="POST"> <!--'GET' sneds as query parametrs-->
             <input type="text" name="name" id="" placeholder="Your Name" required>
             <select name="rating" id="" required>
                 <option value="">Rate Us</option>
@@ -21,8 +21,9 @@
             </select>
             <button type="submit">Submit</button>
         </form>
-        <div id="result">
+        <div>
             <!-- Results -->
+             <h2>{{name}} {{rating}}</h2>
         </div>
     </div>
     <script src="{{url_for('static', filename='js/script.js')}}"></script>
